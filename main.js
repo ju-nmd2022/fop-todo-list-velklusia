@@ -7,7 +7,7 @@ window.addEventListener('load', ()=>{
     if (localStorage.getItem('tasks')) {
         tasks = JSON.parse(localStorage.getItem('tasks'));
         tasks.forEach(task => {
-            addTaskToList(task);
+        addTaskToList(task);
         });
     }
     
@@ -15,7 +15,7 @@ window.addEventListener('load', ()=>{
         e.preventDefault();
         const task = input.value.trim();
         if (!task) {
-            return;
+        return;
         } 
         addTaskToList(task);
         tasks.push(task);
@@ -68,7 +68,6 @@ window.addEventListener('load', ()=>{
             } else {
                 task_input.setAttribute("readonly", "readonly");
                 task_edit_botton.innerText ="Edit";
-                // update the task in the tasks array
                 tasks[tasks.indexOf(task)] = task_input.value;
                 localStorage.setItem('tasks', JSON.stringify(tasks));
             }
@@ -77,14 +76,12 @@ window.addEventListener('load', ()=>{
         task_delete_button.addEventListener('click', ()=>{
             if (confirm("Are you sure you want to delete this task?")) {
                 list.removeChild(task_div);
-                // remove the task from the tasks array
                 tasks.splice(tasks.indexOf(task), 1);
                 localStorage.setItem('tasks', JSON.stringify(tasks));
             }
         })
   task_completed_button.addEventListener('click', ()=>{
-    task_div.remove(); // remove the task element from the DOM
-    // remove the task from the tasks array
+    task_div.remove();
     tasks.splice(tasks.indexOf(task), 1);
     localStorage.setItem('tasks', JSON.stringify(tasks)); 
 })
