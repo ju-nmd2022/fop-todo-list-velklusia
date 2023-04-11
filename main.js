@@ -10,3 +10,15 @@ window.addEventListener('load', ()=>{
             addTaskToList(task);
         });
     }
+    
+    form.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        const task = input.value.trim();
+        if (!task) {
+            return;
+        } 
+        addTaskToList(task);
+        tasks.push(task);
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+        input.value = "";
+    });
