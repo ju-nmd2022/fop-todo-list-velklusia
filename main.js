@@ -82,3 +82,11 @@ window.addEventListener('load', ()=>{
                 localStorage.setItem('tasks', JSON.stringify(tasks));
             }
         })
+  task_completed_button.addEventListener('click', ()=>{
+    task_div.remove(); // remove the task element from the DOM
+    // remove the task from the tasks array
+    tasks.splice(tasks.indexOf(task), 1);
+    localStorage.setItem('tasks', JSON.stringify(tasks)); 
+})
+    }
+});
