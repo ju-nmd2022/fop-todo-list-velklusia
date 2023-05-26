@@ -81,9 +81,7 @@ window.addEventListener('load', ()=>{
             }
         })
   task_completed_button.addEventListener('click', ()=>{
-    task_div.remove();
-    tasks.splice(tasks.indexOf(task), 1);
-    localStorage.setItem('tasks', JSON.stringify(tasks)); 
+    task_input.style.textDecoration = 'line-through';
 })
     }
 });
