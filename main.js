@@ -37,7 +37,7 @@ window.addEventListener('load', () => {
       task_input.type = "text";
       task_input.value = task;
       task_input.setAttribute("readonly", "readonly");
-      if (isTaskCompleted(task_input.value)) {
+      if (isTaskCompleted(task)) {
         task_input.style.textDecoration = 'line-through';
       }
       task_content_div.appendChild(task_input);
@@ -86,7 +86,7 @@ window.addEventListener('load', () => {
   
       task_completed_button.addEventListener('click', () => {
         task_input.style.textDecoration = 'line-through';
-        markTaskAsCompleted(task_input.value);
+        markTaskAsCompleted(task);
       });
     }
   
@@ -107,3 +107,4 @@ window.addEventListener('load', () => {
       return completedTasks.includes(task);
     }
   });
+  
