@@ -37,7 +37,7 @@ window.addEventListener('load', ()=>{
         task_input.type = "text";
         task_input.value = task;
         task_input.setAttribute("readonly", "readonly");
-        if (isTaskCompleted(task.value)) {
+        if (isTaskCompleted(task_input.value)) {
             task_input.style.textDecoration = 'line-through';
             }   
         task_content_div.appendChild(task_input);
