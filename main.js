@@ -32,12 +32,16 @@ window.addEventListener('load', ()=>{
         task_content_div.classList.add("content");
         task_div.appendChild(task_content_div);
 
-        const task_input= document.createElement("input");
+        const task_input = document.createElement("input");
         task_input.classList.add("text");
         task_input.type = "text";
-        task_input.value= task;
+        task_input.value = task;
         task_input.setAttribute("readonly", "readonly");
+        if (isTaskCompleted(task)) {
+            task_input.style.textDecoration = 'line-through';
+            }   
         task_content_div.appendChild(task_input);
+        
 
         const task_actions_div= document.createElement("div");
         task_actions_div.classList.add("actions");
@@ -80,9 +84,16 @@ window.addEventListener('load', ()=>{
                 localStorage.setItem('tasks', JSON.stringify(tasks));
             }
         })
-  task_completed_button.addEventListener('click', ()=>{
-    task_input.style.textDecoration = 'line-through';
-    localStorage.setItem('completed', JSON.stringify(task_input.value));
-})
-    }
+        task_completed_button.addEventListener('click', () => {
+            task_input.style.textDecoration = 'line-through';
+            localStorage.setItem('completed', JSON.stringify(task_input.value));
+          });
+        }
+      
+        function isTaskCompleted(task) {
+          if (localStorage.getItem('completed') && localStorage.getItem('completed') === task) {
+            return true;
+          }
+          return false;
+        }
 });
