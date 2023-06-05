@@ -82,6 +82,8 @@ window.addEventListener('load', ()=>{
         })
   task_completed_button.addEventListener('click', ()=>{
     task_input.style.textDecoration = 'line-through';
+    tasks[tasks.indexOf(task)] = task_input.value;
+    localStorage.setItem('tasks', JSON.stringify(tasks));
 })
     }
 });
