@@ -37,7 +37,7 @@ window.addEventListener('load', ()=>{
         task_input.type = "text";
         task_input.value = task;
         task_input.setAttribute("readonly", "readonly");
-        if (isTaskCompleted(task)) {
+        if (isTaskCompleted(task.value)) {
             task_input.style.textDecoration = 'line-through';
             }   
         task_content_div.appendChild(task_input);
@@ -91,7 +91,7 @@ window.addEventListener('load', ()=>{
         }
       
         function isTaskCompleted(task) {
-          if (localStorage.getItem('completed') && localStorage.getItem('completed') === task) {
+          if (localStorage.getItem('completed') == task) {
             return true;
           }
           return false;
